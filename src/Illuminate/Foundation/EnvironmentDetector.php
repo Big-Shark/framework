@@ -38,6 +38,11 @@ class EnvironmentDetector {
 		{
 			return call_user_func($environments);
 		}
+		
+		if(php_sapi_name() == 'cli-server')
+		{
+			return 'local';
+		}
 
 		foreach ($environments as $environment => $hosts)
 		{
